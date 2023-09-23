@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    align-content: center;
+    text-align: center;
+    }
+body {
+    background-color: #000000;
+    height: 100vh;
+}
+.header {
+    background-color: #999999;
+    color: #ffffff;
+    height: 150px;
+}
+.main {
+    background-color: #666666;
+    color: #ffffff;
+    height: calc(100vh - 210px);
+    margin: 5px 10% 5px 10%;
+    padding: 5px 5% 5px 5%;
+    overflow: auto;
+    scrollbar-color: #ffcc00;
+}
+.content{
+    block-size: fit-content;
+
+}
+.footer{
+    background-color: #333333;
+    color: #ffffff;
+    height: 50px;
+}
