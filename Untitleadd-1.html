@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подсказки, следящие за курсором</title>
+    <style>
+        .container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: #f0f0f0;
+            margin: 20px;
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            pointer-events: none;
+        }
+
+        .row {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="container">
+            Контейнер 1
+            <div class="tooltip">Описание объекта 1</div>
+        </div>
+
+        <div class="container">
+            Контейнер 2
+            <div class="tooltip">Описание объекта 2</div>
+        </div>
+
+        <div class="container">
+            Контейнер 3
+            <div class="tooltip">Описание объекта 3</div>
+        </div>
+
+        <div class="container">
+            Контейнер 4
+            <div class="tooltip">Описание объекта 4</div>
+        </div>
+
+        <div class="row"></div>
+
+        <div class="container">
+            Контейнер 5
+            <div class="tooltip">Описание объекта 5</div>
+        </div>
+
+        <div class="container">
+            Контейнер 6
+            <div class="tooltip">Описание объекта 6</div>
+        </div>
+
+        <div class="container">
+            Контейнер 7
+            <div class="tooltip">Описание объекта 7</div>
+        </div>
+
+        <div class="container">
+            Контейнер 8
+            <div class="tooltip">Описание объекта 8</div>
+        </div>
+
+        <div class="row"></div>
+
+        <div class="container">
+            Контейнер 9
+            <div class="tooltip">Описание объекта 9</div>
+        </div>
+
+        <div class="container">
+            Контейнер 10
+            <div class="tooltip">Описание объекта 10</div>
+        </div>
+    </div>
+
+    <script>
+        const containers = document.querySelectorAll('.container');
+
+        containers.forEach(container => {
+            const tooltip = container.querySelector('.tooltip');
+
+            container.addEventListener('mouseover', () => {
+                tooltip.style.display = 'block';
+            });
+
+            container.addEventListener('mouseout', () => {
+                tooltip.style.display = 'none';
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                const x = e.clientX - container.getBoundingClientRect().left;
+                const y = e.clientY - container.getBoundingClientRect().top;
+                
+                tooltip.style.left = x + 'px';
+                tooltip.style.top = y + 'px';
+            });
+        });
+    </script>
+</body>
+</html>
